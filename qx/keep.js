@@ -7,11 +7,12 @@ if ($respone.body!==undefined){
         vip[key]["status"]=true
     }
        $respone.body=JSON.stringify(resp)
-    }else{
-        $done($respone)
+        
     }
-}else {
-    $done($respone)
 }
+    
+
+$done($respone)
+
 
 
