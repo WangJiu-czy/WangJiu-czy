@@ -6,11 +6,12 @@ if ($respone.body!==undefined){
     for (let key in vip){
         vip[key]["status"]=true
     }
+       $respone.body=JSON.stringify(resp)
     }else{
-        $done()
+        $done($respone)
     }
 }else {
-    $done()
+    $done($respone)
 }
 
 
