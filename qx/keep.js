@@ -1,4 +1,5 @@
-if ($respone.body!==undefined){
+if ($response.body!==undefined){
+    
     var resp=JSON.parse(body)
     if (resp["data"]!==undefined && resp["data"]["permissions"]!==undefined){
         let vip=resp["data"]["permissions"]
@@ -6,13 +7,13 @@ if ($respone.body!==undefined){
     for (let key in vip){
         vip[key]["status"]=true
     }
-       $respone.body=JSON.stringify(resp)
+      $response.body=JSON.stringify(resp)
         
     }
 }
     
 
-$done($respone)
+$done($response)
 
 
 
