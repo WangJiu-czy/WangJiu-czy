@@ -7,13 +7,17 @@ if ($response.body!==undefined){
     for (let key in vip){
         vip[key]["status"]=true
     }
-      $response.body=JSON.stringify(resp)
+        $done({body:JSON.stringify(resp)})
         
+    }else{
+        $done($response.body)    
     }
+    
+}else{
+$done($response.body)
 }
     
 
-$done($response.body)
 
 
 
