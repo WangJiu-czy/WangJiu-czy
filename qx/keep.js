@@ -1,6 +1,6 @@
 if ($response.body!==undefined){
     
-    var resp=JSON.parse(body)
+    var resp=JSON.parse($response.body)
     if (resp["data"]!==undefined && resp["data"]["permissions"]!==undefined){
         let vip=resp["data"]["permissions"]
     resp["data"]["username"]="枉久解锁"
@@ -14,7 +14,7 @@ if ($response.body!==undefined){
     }
     
 }else{
-$done($response.body)
+$done()
 }
     
 
