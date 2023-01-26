@@ -5,4 +5,4 @@
 
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=WangJiu-czy&hide=html)
-![WangJiu-czy's github stats](https://github-readme-stats.vercel.app/api?username==WangJiu-czy&show_icons=true&count_private=true&line_height=40)
+![WangJiu-czy's github stats](https://github-readme-stats.vercel.app/api?username=WangJiu-czy&show_icons=true&count_private=true&line_height=40)
