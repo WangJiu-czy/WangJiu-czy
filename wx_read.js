@@ -22,18 +22,20 @@ const $ = new Env(`阅读自动返回`);
       <style>
           div {position:absolute; top:50%; left:50%; margin:0 0 0 -234px; width:auto; height:auto; border:0px solid #008800; font-size: 7vw;}
       </style>
-      <body bgcolor="#FFFFFF"><p p style="text-align: center;font-size:7vw;">🍅🍅🍅 </p><p style="text-align:right;font-size:7vw;"></p><div id="timer"></div></body>
+      <body bgcolor="#FFFFFF"><p p style="text-align: center;font-size:7vw;">🍅
+🎃
+☁️ </p><p style="text-align:right;font-size:7vw;"></p><div id="timer"></div></body>
       <script>
           var oBox= document.getElementById('timer');
           var maxtime = parseInt(Math.random() * (10 - 9 + 1) + 9 + 1, 11)- 5;
-          setTimeout(()=>window.history.back(),maxtime*830);
+          setTimeout(()=>window.history.go(-1),maxtime*1000);
           function CountDown() {
               if (maxtime >= 0) {
                  oBox.innerHTML = '返回倒计时'+maxtime+'秒';
                   --maxtime;
               } else{
                   clearInterval(timer);
-                  window.history.back();
+                  //window.history.back();
 //window.history.go(-1);
   
               }
@@ -68,7 +70,7 @@ let str=JSON.stringify($response.headers)
 let newUrl='http://mp.weixin.qq.com/api/mock/read'
 
  
-  if (url.indexOf('fast_reada/oiejr') > 0 || url.indexOf("read_task/poiasdj")>0 || url.indexOf("yunonline/v1/jump")>0){
+  if (url.indexOf('fast_reada/oiejr') > 0 || url.indexOf("read_task/")>0 || url.indexOf("yunonline/v1/jump")>0){
 
 
 
@@ -100,82 +102,6 @@ let newUrl='http://mp.weixin.qq.com/api/mock/read'
 
 
 
-/*原始参考版本*/
-/*
-const $ = new Env(`阅读自动返回`);
-!(async () => {
-  if (typeof $request !== "undefined") {
-    if ($request.url.indexOf('/mock/read') > 0) {
-      let body = `
-     <html>
-      <head>
-          <meta charset="UTF-8">
-      </head>
-      <style>
-          div {position:absolute; top:50%; left:50%; margin:0 0 0 -234px; width:auto; height:auto; border:0px solid #008800; font-size: 7vw;background:gray;}
-      </style>
-      <body bgcolor="#d0d0d0"><p style="text-align: center;font-size:7vw; font-weight:bold; ">⚠️</p><p p style="text-align: center;font-size:7vw;">手淫有害，慢点撸！</p><p style="text-align:right;font-size:7vw;">——Ariszy</p><div id="timer"></div></body>
-      <script>
-          var oBox= document.getElementById('timer');
-          var maxtime = parseInt(Math.random() * (10 - 9 + 1) + 9 + 1, 11)- 6;
-          setTimeout(()=>window.history.back(),maxtime*800);
-          function CountDown() {
-              if (maxtime >= 0) {
-                  oBox.innerHTML = '返回倒计时'+maxtime+'秒';
-                  --maxtime;
-              } else{
-                  clearInterval(timer);
-                  window.history.back();
-              }
-          }
-          timer = setInterval("CountDown()", 1000);
-        </script>
-      </html>
-      `
-      const headers = {
-        "Connection": "keep-alive",
-        'Content-Type': 'text/html; charset=utf-8'
-      };
-      if ($.isSurge() || $.isLoon()) {
-        $.done({response: {status: 200, headers, body}})
-      } else if ($.isQuanX()) {
-        $.done({status: 'HTTP/1.1 200 OK', headers, body})
-      }
-     }
-else if (typeof $response !== "undefined") {
-    //这个才是处理阅读平台的逻辑
-    let url = $request.url
-      let body = $response.body || ''
-//这个url是微信提供是一个测试接口，是空白页面，并不会产生阅读数据
-      let newUrl = 'http://mp.weixin.qq.com/api/mock/read'
-    //
-  if (url.indexOf('/coin/read') > 0) {
-
-        body = $response.body
-        let obj = JSON.parse(body)
-        obj.result.url = newUrl
-        body = JSON.stringify(obj)
-        $.done({body: body})
-      }
-      else {
-        let [, callback, json] = (body.match(/^(\w+)\(({[^()]+})\)$/) || ['', '', ''])
-        if (callback && json) {
-          json = $.toObj(json, {})
-          if (json.url) {
-            json.url = newUrl
-            body = `${callback}(${$.toStr(json)})`
-            $.done({body})
-          } else {
-            $.msg($.name, `修改url失败`, body)
-          }
-        } else {
-          $.log(`未检查到待跳转的微信文章url：\n${JSON.stringify($response.headers, null, 2)}`)
-        }
-      }
-    }
-  }
-})().catch((e) => $.logErr(e)).finally(() => $.done());
-*/
 
 function postApi(params,t = 0){
  return new Promise((resolve, reject) => {
