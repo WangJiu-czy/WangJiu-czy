@@ -70,7 +70,7 @@ let str=JSON.stringify($response.headers)
 let newUrl='http://mp.weixin.qq.com/api/mock/read'
 
  
-  if (url.indexOf('fast_reada/oiejr') > 0 || url.indexOf("read_task/")>0 || url.indexOf("yunonline/v1/jump")>0){
+  if (url.indexOf('tuijian/oiejr') > 0 || url.indexOf("read_task/")>0 || url.indexOf("yunonline/v1/jump")>0){
 
 
 
