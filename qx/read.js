@@ -12,7 +12,7 @@
       <script>
           var oBox= document.getElementById('timer');
           var maxtime = parseInt(Math.random() * (10 - 9 + 1) + 9 + 1, 11)- 5;
-          setTimeout(()=>window.history.go(-1),maxtime*1000);
+          setTimeout(()=>window.history.go(-1),maxtime*830);
           function CountDown() {
               if (maxtime >= 0) {
                  oBox.innerHTML = '返回倒计时'+maxtime+'秒';
