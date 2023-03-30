@@ -55,7 +55,8 @@ if (!body.data) {
                 } else if (item.name === '会员购') {
                     console.log('去除会员购');
                     return false;
-                }else if (item.name==="动态"){
+                }else if (item.tab_id==="dynamic"){
+                    console.log('去除动态');
                     return false
                 }
                 return true;
