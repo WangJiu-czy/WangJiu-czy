@@ -59,7 +59,7 @@ if (!body.data) {
                 return true
             });
             fixPos(body.data.tab)
-            
+
         }
         // 底部tab栏
         if (!body.data.bottom) {
@@ -125,7 +125,33 @@ if (!body.data) {
                 return true;
             });
         }
-    } else {
+    }else if (url.includes("x/v2/account/mine")){
+        console.log("我的页面")
+        if (!body.data.sections_v2) {
+            console.log(`sections_v2:${$response.body}`);
+        }else{
+            body.data.sections_v2=body.data.sections_v2.filter(item=>{
+                if (item.type===3){
+                    return false
+                }else if (item.title==="推荐服务"){
+                    return false
+                }else if (item.title==="更多服务"){
+                    return false
+                }
+                return true
+            });
+        }
+
+        if (!body.data.vip_section_v2){
+            console.log(`vip_section_v2:${$response.body}`);
+        }else{
+            delete body.data.vip_section_v2
+        }
+        if (body.data.vip_section){
+            delete body.data.vip_section
+        }
+
+    }else {
         $notification.post(notifyTitle, "路径匹配错误:", url);
     }
 }
