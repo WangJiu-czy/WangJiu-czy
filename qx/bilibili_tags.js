@@ -43,6 +43,24 @@ if (!body.data) {
             });
             fixPos(body.data.top);
         }
+        if (!body.data.tab){
+            console.log(`body:${$response.body}`);
+            $notification.post(notifyTitle, 'tab', "tab字段错误");
+        }else{
+            body.data.tab=body.data.tab.filter(item=>{
+                if (item.name==="直播"){
+                    console.log('去除直播');
+                    return false
+                }else if (item.name==="校园"){
+                    return false
+                }else if (item.name==="新征程"){
+                    return false
+                }
+                return true
+            });
+            fixPos(body.data.tab)
+            
+        }
         // 底部tab栏
         if (!body.data.bottom) {
             console.log(`body:${$response.body}`);
