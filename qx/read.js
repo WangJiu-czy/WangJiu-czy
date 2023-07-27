@@ -12,14 +12,14 @@
       <script>
           var oBox= document.getElementById('timer');
           var maxtime = parseInt(Math.random() * (10 - 9 + 1) + 9 + 1, 11)- 4;
-          setTimeout(()=>window.history.go(-1),maxtime*830);
+         // setTimeout(()=>window.history.go(-1),maxtime*950);
           function CountDown() {
               if (maxtime >= 0) {
                  oBox.innerHTML = '返回倒计时'+maxtime+'秒';
                   --maxtime;
               } else{
                   clearInterval(timer);
-                  //window.history.back();
+                  window.history.back();
 //window.history.go(-1);
   
               }
