@@ -11,10 +11,10 @@
 ☁️ </p><p style="text-align:right;font-size:7vw;"></p><div id="timer"></div></body>
       <script>
           var oBox= document.getElementById('timer');
-          var maxtime = parseInt(Math.random() * (10 - 9 + 1) + 9 + 1, 11)- 4;
-         // setTimeout(()=>window.history.go(-1),maxtime*950);
+          var maxtime = parseInt(Math.random() * (10 - 9 + 1) + 9 + 1, 11)- 5;
+          setTimeout(()=>window.history.go(-1),maxtime*1050);
           function CountDown() {
-              if (maxtime >= 0) {
+              if (maxtime > 0) {
                  oBox.innerHTML = '返回倒计时'+maxtime+'秒';
                   --maxtime;
               } else{
