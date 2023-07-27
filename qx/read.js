@@ -14,7 +14,7 @@
           var maxtime = parseInt(Math.random() * (10 - 9 + 1) + 9 + 1, 11)- 5;
           setTimeout(()=>window.history.go(-1),maxtime*1050);
           function CountDown() {
-              if (maxtime > 0) {
+              if (maxtime >= 0) {
                  oBox.innerHTML = '返回倒计时'+maxtime+'秒';
                   --maxtime;
               } else{
