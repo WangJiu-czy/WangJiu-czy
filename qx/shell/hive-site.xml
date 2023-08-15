@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+  <property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://master:3306/hive?createDatabaseIfNotExist=true&amp;useSSL=false&amp;characterEnconding=UTF-8&amp;allowPublicKeyRetrieval=true</value>
+          <!--mysql8.x版本需要在加上这个参数allowPublicKeyRetrieval=true-->
+  </property>
+
+  <property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+          <!--mysql8.x版本com.mysql.cj.jdbc.Driver-->
+  </property>
+
+  <property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>hive</value>
+  </property>
+
+  <property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>hive</value>
+  </property>
+
+   <!--元数据服务-->
+    
+    <property>
+  <name>hive.metastore.local</name>
+  <value>false</value>
+</property>
+    
+      <!--配置hive的根目录,直接放到hdfs的hive目录下面-->
+<property>
+  <name>hive.metastore.warehouse.dir</name>
+  <value>/hive/warehouse</value>
+</property>
+    
+<property>
+  <name>hive.metastore.uris</name>
+  <value>thrift://master:9083</value> 
+</property>
+
+
+    <property>
+        <name>hive.metastore.schema.verification</name>
+        <value>false</value>
+</property>
+
+<property> 
+     <name>hive.cli.print.current.db</name>
+     <value>true</value>
+</property>
+
+<property> 
+         <name>hive.cli.print.header</name>
+         <value>true</value>
+</property>
+    
+
+
+
+    <!--hive2配置-->
+    <property>
+         <name>hive.server2.thrift.port</name>
+         <value>10000</value>
+</property>
+
+<property>
+	<name>hive.server2.thrift.bind.host</name>
+	<value>master</value>
+</property>
+    
+    <property>
+    <name>hive.server2.thrift.client.user</name>
+    <value>hadoop</value>
+
+  </property>
+  <property>
+    <name>hive.server2.thrift.client.password</name>
+    <value>hadoop</value>
+
+  </property>
+    
+    
+<property>
+    <name>hive.server2.active.passive.ha.enable</name>
+    <value>true</value>
+</property>
+
+
+</configuration>
