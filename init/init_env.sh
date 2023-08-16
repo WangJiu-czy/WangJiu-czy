@@ -8,10 +8,10 @@ hostname="master"
 
 echo "===================更新软件包,安装依赖========================="
 if command -v yum &>/dev/null;then
-        echo $pd |sudo -S yum install -y net-tools wget curl vim
+        echo $pd |sudo -S yum install -y net-tools wget curl vim expect
         rpm -e `rpm -qa |grep openjdk`
 else
-        echo $pd |sudo -S apt install net-tools wget curl vim
+        echo $pd |sudo -S apt install net-tools wget curl vim expect
          sudo apt-get remove openjdk*
 fi
 echo "==================免密设置==========================="
@@ -29,9 +29,11 @@ echo "===================配置ip映射================================"
 ip=`ifconfig ens33|grep "inet " |awk '{ print $2}'`
 echo $pd |sudo -S hostnamectl set-hostname "$hostname"
 echo $pd | sudo -S sh -c "echo '${ip} $hostname' >> /etc/hosts"
-echo $pd | sudo -S sh -c "sed -i 's/[0-9\.]\+[ ]\+$hostname/$ip $hostname/g' /etc/hosts"
 
 
 echo "=====================创建目录============================="
 echo $pd |sudo -S mkdir -p /opt/install
-echo $pd |sudo -S chown -R $USER:$USER /opt/install
+
+if [ "$(uname)" != "Darwin" ]; then
+  echo $pd |sudo -S chown -R $USER:$USER /opt/install
+fi
