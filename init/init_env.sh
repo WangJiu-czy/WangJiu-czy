@@ -9,19 +9,20 @@ hostname="master"
 echo "===================更新软件包,安装依赖========================="
 if command -v yum &>/dev/null;then
         echo $pd |sudo -S yum install -y net-tools wget curl vim expect
-        rpm -e `rpm -qa |grep openjdk`
+        echo $pd |sudo -S rpm -e  --nodeps `rpm -qa |grep openjdk`
+        echo $pd |sudo -S systemctl stop firewalld.service
+        echo $pd |sudo -S systemctl disable firewalld.service
 else
         echo $pd |sudo -S apt install net-tools wget curl vim expect
-         sudo apt-get remove openjdk*
+        echo $pd |sudo -S apt-get remove openjdk*
 fi
 echo "==================免密设置==========================="
 if [ -d ~/.ssh ]; then
      echo "已经设置过ssh免密"
 
 else
-  #TODO:使用超时判断有点bug
     ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 0600 ~/.ssh/authorized_keys
-    echo "ssh 设置成功!"
+    echo "==========================ssh 设置成功!============================================"
 fi
 
 echo "===================配置ip映射================================"
