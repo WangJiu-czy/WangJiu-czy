@@ -7,14 +7,18 @@ hostname="master"
 
 
 echo "===================更新软件包,安装依赖========================="
-if command -v yum &>/dev/null;then
-        echo $pd |sudo -S yum install -y net-tools wget curl vim expect
-        echo $pd |sudo -S rpm -e  --nodeps `rpm -qa |grep openjdk`
-        echo $pd |sudo -S systemctl stop firewalld.service
-        echo $pd |sudo -S systemctl disable firewalld.service
+if [[ $(cat /etc/os-release) == *"Ubuntu"* ]]; then
+          echo $pd |sudo -S apt install net-tools wget curl vim
+          echo $pd |sudo -S apt-get remove openjdk*
+elif [[ $(cat /etc/os-release) == *"CentOS"* ]]; then
+     echo $pd |sudo -S yum install -y net-tools wget curl vim expect
+          echo $pd |sudo -S rpm -e  --nodeps `rpm -qa |grep openjdk`
+          echo $pd |sudo -S systemctl stop firewalld.service
+          echo $pd |sudo -S systemctl disable firewalld.service
 else
-        echo $pd |sudo -S apt install net-tools wget curl vim expect
-        echo $pd |sudo -S apt-get remove openjdk*
+  printf "\n"
+  echo "======================无法判断当前系统==================="
+  printf "\n"
 fi
 echo "==================免密设置==========================="
 if [ -d ~/.ssh ]; then
