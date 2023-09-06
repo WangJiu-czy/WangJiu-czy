@@ -55,7 +55,7 @@ export JAVA_HOME=/opt/install/java
 
 # Location of Hadoop.  By default, Hadoop will attempt to determine
 # this location based upon its execution path.
-# export HADOOP_HOME=
+export HADOOP_HOME=/opt/install/hadoop
 
 # Location of Hadoop's configuration information.  i.e., where this
 # file is living. If this is not defined, Hadoop will attempt to
