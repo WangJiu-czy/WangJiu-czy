@@ -6,7 +6,9 @@ proxy="https://ghproxy.com/"
 hostname=$2
 
 
-
+if [ ! -d /opt/install/hadoop ]; then
+  wget -qO - $proxy'https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/init_env.sh' | bash -s $pd $hostname
+fi
 ##------------------------------------------------------------------------------------
 
 #需要主要镜像源有没有这个版本
