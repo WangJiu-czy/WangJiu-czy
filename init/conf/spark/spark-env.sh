@@ -12,3 +12,4 @@ export HADOOP_CONF_DIR=/opt/install/hadoop/etc/hadoop
 export PYSPARK_PYTHON=/opt/install/anaconda3/bin/python3
 
 export PYSPARK_DRIVER_PYTHON=/opt/install/anaconda3/bin/python3
+#export SPARK_HISTORY_OPTS="-Dspark.history.fs.logDirectory=hdfs://master:8020/sparklog/ -Dspark.history.fs.cleaner.enable=true"
