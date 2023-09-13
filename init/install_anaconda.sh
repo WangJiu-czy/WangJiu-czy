@@ -10,5 +10,5 @@ spawn bash /opt/install/Anaconda.sh -b -p $conda_path
 expect "license terms?"
 send "yes\r"
 expect  eof
-spawn $conda_path/bin/pip install pyspark==3.3.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
+spawn $conda_path/bin/pip install pyspark==3.3.3 -i https://pypi.tuna.tsinghua.edu.cn/simple
 expect eof
