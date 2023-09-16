@@ -55,7 +55,7 @@ fi
 
 
 
-export HADOOP_VERSION=3.3.6
+export HADOOP_VERSION=3.3.1
 export  HADOOP_URL=https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
 
 curl -fSL "$HADOOP_URL" -o /opt/install/hadoop.tar.gz \
