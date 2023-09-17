@@ -11,8 +11,8 @@ if [ ! -d /opt/install/hadoop ]; then
 fi
 ##------------------------------------------------------------------------------------
 
-#需要主要镜像源有没有这个版本
-SPARK_VERSION=3.3.3
+
+SPARK_VERSION=$3
 SPARK_URL="https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop3-scala2.13.tgz"
 
 
