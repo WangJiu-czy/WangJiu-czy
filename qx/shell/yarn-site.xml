@@ -44,4 +44,18 @@
         <name>yarn.nodemanager.pmem-check-enabled</name>
         <value>false</value>
     </property>
+
+   <property>
+        <name>yarn.log-aggregation-enable</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>yarn.log-aggregation.retain-seconds</name>
+        <value>86400</value>
+    </property>
+    <property>
+        <name>yarn.log.server.url</name>
+        <value>http://master:19888/jobhistory/job/</value>
+    </property>
+
 </configuration>
