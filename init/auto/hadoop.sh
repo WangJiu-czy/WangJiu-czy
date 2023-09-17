@@ -8,7 +8,7 @@ hostname=$2
 echo "===================更新软件包,安装依赖========================="
 # 检测当前系统是Ubuntu还是CentOS
 if [[ $(cat /etc/os-release) == *"Ubuntu"* ]]; then
-          echo $pd |sudo -S apt-get remove openjdk*
+          ##echo $pd |sudo -S apt-get remove openjdk*
 elif [[ $(cat /etc/os-release) == *"CentOS"* ]]; then
           echo $pd |sudo -S rpm -e  --nodeps `rpm -qa |grep openjdk`
           echo $pd |sudo -S systemctl stop firewalld.service
