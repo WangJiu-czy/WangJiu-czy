@@ -47,5 +47,8 @@
  <name>dfs.datanode.data.dir</name>
  <value>/opt/install/bigdata/hadoop/dfs/data</value>
  </property>
-
+<property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>master:9868</value>
+    </property>
 </configuration>
