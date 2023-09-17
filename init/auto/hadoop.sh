@@ -3,7 +3,7 @@
 pd=$1
 proxy="https://ghproxy.com/"
 hostname=$2
-
+export HADOOP_VERSION=$3
 
 echo "===================更新软件包,安装依赖========================="
 # 检测当前系统是Ubuntu还是CentOS
@@ -55,7 +55,7 @@ fi
 
 
 
-export HADOOP_VERSION=3.3.1
+
 export  HADOOP_URL=https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
 
 curl -fSL "$HADOOP_URL" -o /opt/install/hadoop.tar.gz \
