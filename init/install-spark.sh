@@ -2,8 +2,8 @@ proxy="https://ghproxy.com/"
 F1=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/spark-defaults.conf"
 F2=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/spark-env.sh"
 F3=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/workers"
-prePATH=$1
-SP_HOME=$prePATH"/spark"
+
+SP_HOME=$1"/spark"
 hostName=`hostname`
 
 
