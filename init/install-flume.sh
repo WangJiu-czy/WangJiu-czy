@@ -16,5 +16,5 @@ wget -P $FLUME_HOME/conf $TSHDFS -O $FLUME_HOME/conf/hdfs-test.conf
 wget -P $FLUME_HOME/conf $TS2 -O $FLUME_HOME/conf/test-flmue.sh
 
 sed -i "s,/opt/install/java,$JAVA_HOME,g" FLUME_HOME/conf/flume-env.sh
-
+chmod +x FLUME_HOME/conf/flume-env.sh
 fi
