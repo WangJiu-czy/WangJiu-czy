@@ -3,14 +3,16 @@ F1=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/co
 F2=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/spark-env.sh"
 F3=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/workers"
 prePATH=$1
-SP_HOME=$prePATH"/spark"
+#SP_HOME=$prePATH"/spark"
 hostName=`hostname`
-
-if [ -d $SP_HOME/conf  ]; then
 source /etc/profile && echo "=======加载 /etc/profile环境变量======"
 printf "\n"
 source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
-printf "\n"
+printf "\n
+
+SP_HOME=$SPARK_HOME
+if [ -d $SP_HOME/conf  ]; then
+"
 wget -P $SP_HOME/conf  $F1 -O $SP_HOME/conf/spark-defaults.conf
 wget -P $SP_HOME/conf  $F2 -O $SP_HOME/conf/spark-env.sh
 wget -P $SP_HOME/conf  $F3 -O $SP_HOME/conf/workers
