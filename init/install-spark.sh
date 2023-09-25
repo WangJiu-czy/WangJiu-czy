@@ -18,7 +18,7 @@ chmod +x  $SP_HOME/conf/spark-env.sh
 
 sed -i "s,master,$hostName,g" $SP_HOME/conf/spark-env.sh
 sed -i "s,/opt/install/java,$JAVA_HOME,g" $SP_HOME/conf/spark-env.sh
-
+sed -i "s,master,$hostName,g" $SP_HOME/conf/workers
 if [ -d $HADOOP_HOME ]; then
   echo "export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop" >> $SP_HOME/conf/spark-env.sh
 fi
