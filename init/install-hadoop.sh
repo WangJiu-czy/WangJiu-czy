@@ -1,7 +1,7 @@
 proxy="https://ghproxy.com/"
 prePATH=$1
 hostName=`hostname`
-HD_HOME=$prePath"/hadoop"
+HD_HOME=$prePATH"/hadoop"
 HDENV=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hadoop-env.sh"
 CORE=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/core-site.xml"
 HDFS=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hdfs-site.xml"
