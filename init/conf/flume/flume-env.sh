@@ -30,5 +30,5 @@ export JAVA_HOME=/opt/install/java
 # export JAVA_OPTS="$JAVA_OPTS -Dorg.apache.flume.log.rawdata=true -Dorg.apache.flume.log.printconfig=true "
 
 # Note that the Flume conf directory is always included in the classpath.
-export FLUME_CLASSPATH=/opt/install/flume/lib
+#export FLUME_CLASSPATH=""
 
