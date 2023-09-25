@@ -7,7 +7,6 @@ CORE=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/sh
 HDFS=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hdfs-site.xml"
 MP=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/mapred-site.xml"
 YARN=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/yarn-site.xml"
-SLAVE=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/workers"
 
 if [ -d $HD_HOME/etc/hadoop ]; then
 source /etc/profile && echo "=======加载 /etc/profile环境变量======"
@@ -19,14 +18,13 @@ wget -P $HD_HOME/etc/hadoop $CORE -O $HD_HOME/etc/hadoop/core-site.xml
 wget -P $HD_HOME/etc/hadoop $HDFS -O $HD_HOME/etc/hadoop/hdfs-site.xml
 wget -P $HD_HOME/etc/hadoop $MP  -O $HD_HOME/etc/hadoop/mapred-site.xml
 wget -P $HD_HOME/etc/hadoop $YARN -O $HD_HOME/etc/hadoop/yarn-site.xml
-###wget -P $HD_HOME/etc/hadoop $SLAVE -O  $HD_HOME/etc/hadoop/workers
+
 
 sed -i "s,/opt/install/java,$JAVA_HOME,g" $HD_HOME/etc/hadoop/hadoop-env.sh
 sed -i "s,/opt/install/hadoop,$HADOOP_HOME,g" $HD_HOME/etc/hadoop/hadoop-env.sh
 sed -i "s,/opt/install/bigdata,$prePATH,g" $HD_HOME/etc/hadoop/core-site.xml
 sed -i "s,/opt/install/bigdata,$prePATH,g" $HD_HOME/etc/hadoop/hdfs-site.xml
-
-echo "======================================================================="
+printf "\n"
 sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/core-site.xml
 sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/hdfs-site.xml
 sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/mapred-site.xml
