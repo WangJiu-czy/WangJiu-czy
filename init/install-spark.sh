@@ -12,6 +12,8 @@ source /etc/profile && echo "=======加载 /etc/profile环境变量======"
 printf "\n"
 source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
 printf "\n"
+
+
 wget -P $SP_HOME/conf  $F1 -O $SP_HOME/conf/spark-defaults.conf
 wget -P $SP_HOME/conf  $F2 -O $SP_HOME/conf/spark-env.sh
 wget -P $SP_HOME/conf  $F3 -O $SP_HOME/conf/workers
