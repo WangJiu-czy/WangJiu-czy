@@ -68,13 +68,12 @@ printf "\n"
 rm /opt/install/*gz
 #echo "========================下载anaconda3=========================="
 
-#curl -fSLK /opt/install/ https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2020.11-Linux-x86_64.sh -o /opt/install/anaconda3-2020.sh
-#curl -fSLk $proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/install_anaconda.sh" | expect
+curl -fSLk $proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/install_anaconda.sh" | expect
 
-#echo $pd |sudo -S sh -c "echo 'export ANACONDA_HOME=/opt/install/anaconda3' >> /etc/profile"
-#echo $pd |sudo -S sh -c "echo 'export PATH=\$PATH:\$ANACONDA_HOME/bin' >> /etc/profile"
+echo $pd |sudo -S sh -c "echo 'export ANACONDA_HOME=/opt/install/anaconda3' >> /etc/profile"
+echo $pd |sudo -S sh -c "echo 'export PATH=\$PATH:\$ANACONDA_HOME/bin' >> /etc/profile"
 
-#/opt/install/anaconda3/bin/conda init
+/opt/install/anaconda3/bin/conda init
 
 
 
