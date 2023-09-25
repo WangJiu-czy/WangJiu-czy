@@ -21,16 +21,16 @@ wget -P $HD_HOME/etc/hadoop $MP  -O $HD_HOME/etc/hadoop/mapred-site.xml
 wget -P $HD_HOME/etc/hadoop $YARN -O $HD_HOME/etc/hadoop/yarn-site.xml
 ###wget -P $HD_HOME/etc/hadoop $SLAVE -O  $HD_HOME/etc/hadoop/workers
 
-sed -i 's,/opt/install/java,$JAVA_HOME,g' $HD_HOME/etc/hadoop/hadoop-env.sh
-sed -i 's,/opt/install/hadoop,$HADOOP_HOME,g' $HD_HOME/etc/hadoop/hadoop-env.sh
-sed -i 's,/opt/install/bigdata,$prePATH,g' $HD_HOME/etc/hadoop/core-site.xml
-sed -i 's,/opt/install/bigdata,$prePATH,g' $HD_HOME/etc/hadoop/hdfs-site.xml
+sed -i "s,/opt/install/java,$JAVA_HOME,g" $HD_HOME/etc/hadoop/hadoop-env.sh
+sed -i "s,/opt/install/hadoop,$HADOOP_HOME,g" $HD_HOME/etc/hadoop/hadoop-env.sh
+sed -i "s,/opt/install/bigdata,$prePATH,g" $HD_HOME/etc/hadoop/core-site.xml
+sed -i "s,/opt/install/bigdata,$prePATH,g" $HD_HOME/etc/hadoop/hdfs-site.xml
 
 echo "======================================================================="
-sed -i 's,master,$hostName,g' $HD_HOME/etc/hadoop/core-site.xml
-sed -i 's,master,$hostName,g' $HD_HOME/etc/hadoop/hdfs-site.xml
-sed -i 's,master,$hostName,g' $HD_HOME/etc/hadoop/mapred-site.xml
-sed -i 's,master,$hostName,g' $HD_HOME/etc/hadoop/yarn-site.xml
+sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/core-site.xml
+sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/hdfs-site.xml
+sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/mapred-site.xml
+sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/yarn-site.xml
 
 
 fi
