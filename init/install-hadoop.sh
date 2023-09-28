@@ -13,11 +13,11 @@ source /etc/profile && echo "=======加载 /etc/profile环境变量======"
 printf "\n"
 source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
 printf "\n"
-wget -q  -P $HD_HOME/etc/hadoop $HDENV -O $HD_HOME/etc/hadoop/hadoop-env.sh
-wget -q  -P $HD_HOME/etc/hadoop $CORE -O $HD_HOME/etc/hadoop/core-site.xml
-wget -q  -P $HD_HOME/etc/hadoop $HDFS -O $HD_HOME/etc/hadoop/hdfs-site.xml
-wget -q   -P $HD_HOME/etc/hadoop $MP  -O $HD_HOME/etc/hadoop/mapred-site.xml
-wget -q  -P $HD_HOME/etc/hadoop $YARN -O $HD_HOME/etc/hadoop/yarn-site.xml
+wget -q --show-progress -P $HD_HOME/etc/hadoop $HDENV -O $HD_HOME/etc/hadoop/hadoop-env.sh
+wget -q --show-progress -P $HD_HOME/etc/hadoop $CORE -O $HD_HOME/etc/hadoop/core-site.xml
+wget -q --show-progress -P $HD_HOME/etc/hadoop $HDFS -O $HD_HOME/etc/hadoop/hdfs-site.xml
+wget -q --show-progress  -P $HD_HOME/etc/hadoop $MP  -O $HD_HOME/etc/hadoop/mapred-site.xml
+wget -q --show-progress -P $HD_HOME/etc/hadoop $YARN -O $HD_HOME/etc/hadoop/yarn-site.xml
 
 
 sed -i "s,/opt/install/java,$JAVA_HOME,g" $HD_HOME/etc/hadoop/hadoop-env.sh
