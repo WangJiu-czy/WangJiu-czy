@@ -9,7 +9,7 @@ hostname=$2
 if [ ! -d /opt/install/hadoop ]; then
   wget -qO - $proxy'https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/init_env.sh' | bash -s $pd $hostname
 fi
-##------------------------------------------------------------------------------------
+
 
 
 SPARK_VERSION=$3
@@ -32,7 +32,7 @@ curl -fSL "$SPARK_URL" -o /opt/install/spark.tar.gz \
 mv /opt/install/spark-$SPARK_VERSION-bin-hadoop3-scala2.13 /opt/install/spark
 SPARK_ENV=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/spark-env.sh"
 
-wget -P /opt/install/spark/conf  $SPARK_ENV -O /opt/install/spark/conf/spark-env.sh
+wget -q -P /opt/install/spark/conf  $SPARK_ENV -O /opt/install/spark/conf/spark-env.sh
 mv /opt/install/spark/conf/spark-defaults.conf.template /opt/install/spark/conf/spark-defaults.conf
 mv /opt/install/spark/conf/workers.template /opt/install/spark/conf/workers
 chmod +x /opt/install/spark/conf/spark-env.sh
@@ -41,7 +41,7 @@ echo $pd |sudo -S sh -c "echo 'export SPARK_HOME=/opt/install/spark' >> /etc/pro
 
 printf "\n"
 
-##echo "==================写入配置==================================="
+
 if [ ! -d /opt/install/hadoop ]; then
      echo "spark.eventLog.enabled           false" >> /opt/install/spark/conf/spark-defaults.conf
 
@@ -51,11 +51,11 @@ else
    mkdir -p /opt/install/bin
     ln -s /opt/install/spark/sbin/start-all.sh /opt/install/spark/bin/start-spark.sh
     ln -s /opt/install/spark/sbin/stop-all.sh /opt/install/spark/bin/stop-spark.sh
-    echo "spark.eventLog.enabled           true
-    spark.eventLog.dir               hdfs://master:8020/sparklog/
-    spark.eventLog.compress          true" >> /opt/install/spark/conf/spark-defaults.conf
+    echo "spark.eventLog.enabled           true">> /opt/install/spark/conf/spark-defaults.conf
+    echo "spark.eventLog.dir               hdfs://master:8020/sparklog/" >> /opt/install/spark/conf/spark-defaults.conf 
+    echo "spark.eventLog.compress          true" >> /opt/install/spark/conf/spark-defaults.conf
     echo $pd |sudo -S sh -c "echo 'export PATH=\$PATH:\$SPARK_HOME/bin' >> /etc/profile"
-    #/opt/install/hadoop/bin/hdfs dfs -mkdir -p /sparklog
+    /opt/install/hadoop/bin/hdfs dfs -mkdir -p /sparklog
 fi
 
 
