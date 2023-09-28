@@ -2,11 +2,16 @@
 
 set timeout 60
 set conda_path /opt/install/anaconda3
+set filename Anaconda3-2020.02-Linux-x86_64.sh
 
-spawn curl -fSLK /opt/install/ https://mirrors.aliyun.com/anaconda/archive/Anaconda3-2020.02-Linux-x86_64.sh -o /opt/install/Anaconda.sh
+
+
+spawn wget -q  --show-progress -P /opt/install /opt/install/ https://mirrors.aliyun.com/anaconda/archive/$filename --no-check-certificate
+
+
 expect  eof
 
-spawn bash /opt/install/Anaconda.sh -b -p $conda_path
+spawn bash /opt/install/$filename -b -p $conda_path
 expect "license terms?"
 send "yes\r"
 expect  eof
