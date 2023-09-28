@@ -69,7 +69,7 @@ mv /opt/install/hadoop-$HADOOP_VERSION /opt/install/hadoop
 
 
 if [ -d /opt/install/hadoop/etc/hadoop ]; then
-sh -c "$(wget 'https://ghproxy.com/https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/install-hadoop.sh'   -O -) "
+wget -qO - 'https://ghproxy.com/https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/install-hadoop.sh' | bash -s "/opt/install"
 fi
 printf "\n"
 
