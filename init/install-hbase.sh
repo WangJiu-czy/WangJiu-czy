@@ -11,9 +11,9 @@ printf "\n"
 hostName=`hostname`
 if [ -d $HBASE_HOME  ]; then
 
-wget -q -P $HBASE_HOME/conf $HBENV -O $HBASE_HOME/conf/hbase-env.sh
-wget -q -P $HBASE_HOME/conf $CORE -O $HBASE_HOME/conf/hbase-site.xml
-wget -q -P $HBASE_HOME/conf $SLAVE -O $HBASE_HOME/conf/regionservers
+wget -q --show-progress -P $HBASE_HOME/conf $HBENV -O $HBASE_HOME/conf/hbase-env.sh
+wget -q --show-progress -P $HBASE_HOME/conf $CORE -O $HBASE_HOME/conf/hbase-site.xml
+wget -q --show-progress -P $HBASE_HOME/conf $SLAVE -O $HBASE_HOME/conf/regionservers
 
 sed -i "s,master,$hostName,g"  $HBASE_HOME/conf/regionservers
 sed -i "s,/opt/install/java,$JAVA_HOME,g" $HBASE_HOME/conf/hbase-env.sh
