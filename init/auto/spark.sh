@@ -26,7 +26,7 @@ if [ ! -d /opt/install/java ]; then
 fi
 
 
-curl -fSL "$SPARK_URL" -o /opt/install/spark.tar.gz \
+curl -fSLk "$SPARK_URL" -o /opt/install/spark.tar.gz \
     && tar -xvf /opt/install/spark.tar.gz -C /opt/install
 
 mv /opt/install/spark-$SPARK_VERSION-bin-hadoop3-scala2.13 /opt/install/spark
