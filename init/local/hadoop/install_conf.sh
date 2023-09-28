@@ -10,11 +10,11 @@ path="/usr/local/hadoop/etc/hadoop"
 
 if [ -d $path ]; then
 
-wget -P $path $HDENV -O $path/hadoop-env.sh
-wget -P $path $CORE -O $path/core-site.xml
-wget -P $path $HDFS -O $path/hdfs-site.xml
-wget -P $path $MP  -O $path/mapred-site.xml
-wget -P $path $YARN -O $path/yarn-site.xml
+wget -q -P $path $HDENV -O $path/hadoop-env.sh
+wget -q -P $path $CORE -O $path/core-site.xml
+wget -q -P $path $HDFS -O $path/hdfs-site.xml
+wget -q -P $path $MP  -O $path/mapred-site.xml
+wget -q -P $path $YARN -O $path/yarn-site.xml
 
 
 fi
