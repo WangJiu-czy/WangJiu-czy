@@ -45,6 +45,22 @@
         <value>false</value>
     </property>
 
-
-
+ <property>
+        <name>yarn.log-aggregation-enable</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>yarn.log-aggregation.retain-seconds</name>
+        <value>86400</value>
+    </property>
+    <property>
+        <name>yarn.log.server.url</name>
+        <value>http://localhost:19888/jobhistory/job/</value>
+    </property>
+<property>
+    <name>yarn.application.classpath</name>
+    <value>
+      my_hadoop_classpath
+         </value>
+  </property>
 </configuration>
