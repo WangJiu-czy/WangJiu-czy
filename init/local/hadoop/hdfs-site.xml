@@ -34,7 +34,7 @@
 
 <property>
 <name>dfs.namenode.http-address</name>
-<value>localhost:9870</value>
+<value>localhost:50070</value>
 </property>
 
 <property>
@@ -50,6 +50,6 @@
 
    <property>
         <name>dfs.namenode.secondary.http-address</name>
-        <value>localhost:9868</value>
+        <value>localhost:50090</value>
     </property>
 </configuration>
