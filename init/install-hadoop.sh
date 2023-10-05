@@ -1,5 +1,5 @@
 proxy="https://ghproxy.com/"
-prePATH=$1
+
 hostName=`hostname`
 
 HDENV=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hadoop-env.sh"
