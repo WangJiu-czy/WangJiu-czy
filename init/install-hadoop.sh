@@ -1,6 +1,11 @@
 proxy="https://ghproxy.com/"
 
-hostName=`hostname`
+hostName=localhost
+pcount=$#
+if((pcount==0)); then
+    hostName=`hostname`
+    
+fi
 
 HDENV=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hadoop-env.sh"
 CORE=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/core-site.xml"
@@ -33,6 +38,7 @@ sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/core-site.xml
 sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/hdfs-site.xml
 sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/mapred-site.xml
 sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/yarn-site.xml
-
+value_path=`hadoop classpath`
+sed -i "s,my_hadoop_classpath,$value_path,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
 
 fi
