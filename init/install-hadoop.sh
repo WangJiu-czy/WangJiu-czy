@@ -2,7 +2,7 @@ proxy="https://ghproxy.com/"
 
 hostName=localhost
 pcount=$#
-if((pcount==0)); then
+if ((pcount==0)); then
     hostName=`hostname`
     
 fi
