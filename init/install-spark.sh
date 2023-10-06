@@ -2,16 +2,22 @@ proxy="https://ghproxy.com/"
 F1=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/spark-defaults.conf"
 F2=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/spark-env.sh"
 F3=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/workers"
-
-SP_HOME=$1"/spark"
-hostName=`hostname`
-
-
-if [ -d $SP_HOME/conf  ]; then
 source /etc/profile && echo "=======加载 /etc/profile环境变量======"
 printf "\n"
 source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
 printf "\n"
+SP_HOME=$SPARK_HOME
+
+hostName=localhost
+pcount=$#
+if ((pcount==0)); then
+    hostName=`hostname`
+    
+fi
+
+
+if [ -d $SP_HOME/conf  ]; then
+
 
 
 wget -q -t 3  -P $SP_HOME/conf  $F1 -O $SP_HOME/conf/spark-defaults.conf
