@@ -1,5 +1,11 @@
 proxy="https://ghproxy.com/"
 
+hostName=localhost
+pcount=$#
+if ((pcount==0)); then
+    hostName=`hostname`
+    
+fi
 HDENV=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hadoop-env.sh"
 CORE=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/local/hadoop/core-site.xml"
 HDFS=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/local/hadoop/hdfs-site.xml"
@@ -24,6 +30,11 @@ sed -i "s,/opt/install/java,$JAVA_HOME,g" $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 sed -i "s,/opt/install/hadoop,$HADOOP_HOME,g" $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 sed -i "s,/usr/local/hadoop,$HADOOP_HOME,g" $HADOOP_HOME/etc/hadoop/core-site.xml
 sed -i "s,/usr/local/hadoop,$HADOOP_HOME,g" $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+
+sed -i "s,localhost,$hostName,g" $HADOOP_HOME/etc/hadoop/core-site.xml
+sed -i "s,localhost,$hostName,g" $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+sed -i "s,localhost,$hostName,g" $HADOOP_HOME/etc/hadoop/mapred-site.xml
+sed -i "s,localhost,$hostName,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
 
 value_path=`hadoop classpath`
 sed -i "s,my_hadoop_classpath,$value_path,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
