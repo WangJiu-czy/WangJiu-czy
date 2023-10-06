@@ -57,5 +57,10 @@
         <name>yarn.log.server.url</name>
         <value>http://master:19888/jobhistory/job/</value>
     </property>
-
+<property>
+    <name>yarn.application.classpath</name>
+    <value>
+      my_hadoop_classpath
+         </value>
+  </property>
 </configuration>
