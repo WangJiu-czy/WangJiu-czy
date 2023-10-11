@@ -4,7 +4,7 @@ F2=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/co
 F3=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/workers"
 source /etc/profile && echo "=======加载 /etc/profile环境变量======"
 printf "\n"
-source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
+source ~/.bashrc 
 printf "\n"
 SP_HOME=$SPARK_HOME
 
@@ -31,5 +31,6 @@ sed -i "s,master,$hostName,g" $SP_HOME/conf/workers
 if [ -d $HADOOP_HOME ]; then
   echo "export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop" >> $SP_HOME/conf/spark-env.sh
 fi
-
+&& echo "=======加载成功======"
 fi
+
