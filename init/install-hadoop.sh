@@ -13,9 +13,9 @@ HDFS=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/sh
 MP=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/mapred-site.xml"
 YARN=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/yarn-site.xml"
 
-source /etc/profile && echo "=======加载 /etc/profile环境变量======"
+source /etc/profile && echo "=======更新软件源======"
 printf "\n"
-source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
+source ~/.bashrc 
 printf "\n"
 
 HD_HOME=$HADOOP_HOME
@@ -40,5 +40,5 @@ sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/mapred-site.xml
 sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/yarn-site.xml
 value_path=`hadoop classpath`
 sed -i "s,my_hadoop_classpath,$value_path,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
-
+echo "=======更新完成======="
 fi
