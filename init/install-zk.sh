@@ -1,8 +1,8 @@
 
 
-source /etc/profile && echo "=======加载 /etc/profile环境变量======"
+source /etc/profile 
 printf "\n"
-source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
+source ~/.bashrc 
 printf "\n"
 
 if [ -d $ZOOKEEPER_HOME ]; then
