@@ -41,4 +41,6 @@ sed -i "s,master,$hostName,g" $HD_HOME/etc/hadoop/yarn-site.xml
 value_path=`hadoop classpath`
 sed -i "s,my_hadoop_classpath,$value_path,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
 echo "=======更新完成======="
+else
+echo "=========================HADOOP_HOME 不存在=========================================="
 fi
