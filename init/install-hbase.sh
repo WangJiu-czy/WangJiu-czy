@@ -7,11 +7,13 @@ source /etc/profile
 printf "\n"
 printf "\n"
 
+hostName=localhost
 pcount=$#
 if ((pcount==0)); then
     hostName=`hostname`
     
 fi
+
 if [ -d $HBASE_HOME  ]; then
 
 wget -q -t 3  -P $HBASE_HOME/conf $HBENV -O $HBASE_HOME/conf/hbase-env.sh
