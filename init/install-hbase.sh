@@ -23,5 +23,8 @@ wget -q -t 3  -P $HBASE_HOME/conf $SLAVE -O $HBASE_HOME/conf/regionservers
 sed -i "s,master,$hostName,g"  $HBASE_HOME/conf/regionservers
 sed -i "s,/opt/install/java,$JAVA_HOME,g" $HBASE_HOME/conf/hbase-env.sh
 sed -i "s,master,$hostName,g"  $HBASE_HOME/conf/hbase-site.xml
-fi
 echo "=============加载成功==============="
+else
+echo "===============HBASE_HOME不存在======================"
+fi
+
