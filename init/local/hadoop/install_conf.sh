@@ -14,7 +14,7 @@ YARN=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/
 
 source /etc/profile && echo "=======加载 /etc/profile环境变量======"
 printf "\n"
-source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
+source ~/.bashrc 
 printf "\n"
 
 if [ -d $HADOOP_HOME ]; then
@@ -38,6 +38,6 @@ sed -i "s,localhost,$hostName,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
 
 value_path=`hadoop classpath`
 sed -i "s,my_hadoop_classpath,$value_path,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
-
+ echo "=======加载完成======"
 
 fi
