@@ -1,6 +1,6 @@
-source /etc/profile && echo "=======加载 /etc/profile环境变量======"
+source /etc/profile
 printf "\n"
-source ~/.bashrc && echo "=======加载 ~/.bashrc环境变量======"
+source ~/.bashrc
 printf "\n"
 
 
@@ -17,4 +17,5 @@ wget -q -t 3 -P $FLUME_HOME/conf $TS2 -O $FLUME_HOME/conf/test-flmue.sh
 
 sed -i "s,/opt/install/java,$JAVA_HOME,g" FLUME_HOME/conf/flume-env.sh
 chmod +x FLUME_HOME/conf/flume-env.sh
+echo "=================flume========================"
 fi
