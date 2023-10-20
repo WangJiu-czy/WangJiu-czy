@@ -20,9 +20,9 @@ if [ -d $SP_HOME/conf  ]; then
 
 
 
-wget -q -t 3  -P $SP_HOME/conf  $F1 -O $SP_HOME/conf/spark-defaults.conf
-wget -q -t 3  -P $SP_HOME/conf  $F2 -O $SP_HOME/conf/spark-env.sh
-wget -q -t 3  -P $SP_HOME/conf  $F3 -O $SP_HOME/conf/workers
+wget -q -t 3  -P $SP_HOME/conf  $F1 -O $SP_HOME/conf/spark-defaults.conf --no-check-certificate
+wget -q -t 3  -P $SP_HOME/conf  $F2 -O $SP_HOME/conf/spark-env.sh --no-check-certificate
+wget -q -t 3  -P $SP_HOME/conf  $F3 -O $SP_HOME/conf/workers --no-check-certificate
 chmod +x  $SP_HOME/conf/spark-env.sh
 
 sed -i "s,master,$hostName,g" $SP_HOME/conf/spark-env.sh
