@@ -1,4 +1,4 @@
-proxy="https://ghproxy.com/"
+proxy="https://ghps.cc/"
 
 hostName=localhost
 pcount=$#
