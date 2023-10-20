@@ -16,9 +16,9 @@ fi
 
 if [ -d $HBASE_HOME  ]; then
 
-wget -q -t 3  -P $HBASE_HOME/conf $HBENV -O $HBASE_HOME/conf/hbase-env.sh
-wget -q  -t 3   -P $HBASE_HOME/conf $CORE -O $HBASE_HOME/conf/hbase-site.xml
-wget -q -t 3  -P $HBASE_HOME/conf $SLAVE -O $HBASE_HOME/conf/regionservers
+wget -q -t 3  -P $HBASE_HOME/conf $HBENV -O $HBASE_HOME/conf/hbase-env.sh --no-check-certificate
+wget -q  -t 3   -P $HBASE_HOME/conf $CORE -O $HBASE_HOME/conf/hbase-site.xml --no-check-certificate
+wget -q -t 3  -P $HBASE_HOME/conf $SLAVE -O $HBASE_HOME/conf/regionservers --no-check-certificate
 
 sed -i "s,master,$hostName,g"  $HBASE_HOME/conf/regionservers
 sed -i "s,/opt/install/java,$JAVA_HOME,g" $HBASE_HOME/conf/hbase-env.sh
