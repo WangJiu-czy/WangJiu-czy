@@ -22,11 +22,11 @@ HD_HOME=$HADOOP_HOME
 
 if [ -d $HD_HOME/etc/hadoop ]; then
 
-wget -q -t 3  -P $HD_HOME/etc/hadoop $HDENV -O $HD_HOME/etc/hadoop/hadoop-env.sh
-wget -q -t 3  -P $HD_HOME/etc/hadoop $CORE -O $HD_HOME/etc/hadoop/core-site.xml
-wget -q -t 3  -P $HD_HOME/etc/hadoop $HDFS -O $HD_HOME/etc/hadoop/hdfs-site.xml
-wget -q -t 3  -P $HD_HOME/etc/hadoop $MP  -O $HD_HOME/etc/hadoop/mapred-site.xml
-wget -q -t 3  -P $HD_HOME/etc/hadoop $YARN -O $HD_HOME/etc/hadoop/yarn-site.xml
+wget -q -t 3  -P $HD_HOME/etc/hadoop $HDENV -O $HD_HOME/etc/hadoop/hadoop-env.sh --no-check-certificate
+wget -q -t 3  -P $HD_HOME/etc/hadoop $CORE -O $HD_HOME/etc/hadoop/core-site.xml --no-check-certificate
+wget -q -t 3  -P $HD_HOME/etc/hadoop $HDFS -O $HD_HOME/etc/hadoop/hdfs-site.xml --no-check-certificate
+wget -q -t 3  -P $HD_HOME/etc/hadoop $MP  -O $HD_HOME/etc/hadoop/mapred-site.xml --no-check-certificate
+wget -q -t 3  -P $HD_HOME/etc/hadoop $YARN -O $HD_HOME/etc/hadoop/yarn-site.xml --no-check-certificate
 
 
 sed -i "s,/opt/install/java,$JAVA_HOME,g" $HD_HOME/etc/hadoop/hadoop-env.sh
