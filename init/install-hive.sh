@@ -17,7 +17,7 @@ if [ -d $HIVE_HOME/conf ]; then
 
 
 
-HIVE_SITE="https://ghproxy.com/https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hive-site.xml" 
+HIVE_SITE="https://ghps.cc/https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hive-site.xml" 
 wget -q -t 3  -P $HIVE_HOME/conf $HIVE_SITE -O $HIVE_HOME/conf/hive-site.xml --no-check-certificate
 echo "nohup hive --service metastore 2>&1 &" >> $HIVE_HOME/bin/hive-meta.sh
 echo "nohup hive --service hiveserver2 2>&1 &" >> $HIVE_HOME/bin/hive2.sh
