@@ -1,4 +1,4 @@
-proxy="https://ghproxy.com/"
+proxy="https://ghps.cc/"
 F1=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/spark-defaults.conf"
 F2=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/spark-env.sh"
 F3=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/init/conf/spark/workers"
@@ -18,7 +18,8 @@ fi
 
 if [ -d $SP_HOME/conf  ]; then
 
-
+ln -s $SPARK_HOME/sbin/start-all.sh $SPARK_HOME/bin/start-spark.sh
+ln -s $SPARK_HOME/sbin/stop-all.sh $SPARK_HOME/bin/stop-spark.sh
 
 wget -q -t 3  -P $SP_HOME/conf  $F1 -O $SP_HOME/conf/spark-defaults.conf --no-check-certificate
 wget -q -t 3  -P $SP_HOME/conf  $F2 -O $SP_HOME/conf/spark-env.sh --no-check-certificate
