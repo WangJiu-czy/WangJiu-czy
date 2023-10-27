@@ -4,7 +4,11 @@ proxy_list=(
 )
 
 proxy="https://ghps.cc/"
-
+hostName=localhost
+pcount=$#
+if ((pcount==0)); then
+    hostName=`hostname`
+fi
 
 ## 测试代理连接
 function test_url(){
@@ -19,12 +23,7 @@ echo "===========所有代理不可用=========="
 }
 
 function download_conf(){
-hostName=localhost
-pcount=$#
-if ((pcount==0)); then
-    hostName=`hostname`
-    
-fi
+
 HDENV=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hadoop-env.sh"
 CORE=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/core-site.xml"
 HDFS=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/hdfs-site.xml"
@@ -36,7 +35,6 @@ printf "\n"
 source ~/.bashrc 
 printf "\n"
 
-HD_HOME=$HADOOP_HOME
 
 if [ -d $HADOOP_HOME/etc/hadoop ]; then
 
@@ -53,7 +51,7 @@ echo "--->Y"
 
 echo "===========下载完成============="
 else
-echo "=============HADOOP_HOME 不存在========="
+echo "======HADOOP_HOME 不存在========="
 fi
 
 }
