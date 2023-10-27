@@ -31,9 +31,8 @@ MP=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shel
 YARN=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/yarn-site.xml"
 
 source /etc/profile && echo "===========更新软件源=========="
-printf "\n"
 source ~/.bashrc 
-printf "\n"
+
 
 
 if [ -d $HADOOP_HOME/etc/hadoop ]; then
