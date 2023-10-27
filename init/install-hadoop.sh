@@ -76,7 +76,7 @@ fi
 
 
 function main(){
-test_url()
-download_conf()
-set_conf()
+test_url
+download_conf
+set_conf
 }
