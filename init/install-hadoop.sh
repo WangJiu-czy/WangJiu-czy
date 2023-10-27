@@ -16,10 +16,10 @@ for ((i = 0; i < ${#proxy_list[@]}; i++)); do
 urlstatus=$(curl -s -m 5 -IL ${proxy_list[i]}|grep 200)
 if [ "$urlstatus" == "200" ];then
     proxy=${proxy_list[i]}
-    return 1
+    break
 fi
 done
-echo "===========所有代理不可用=========="
+
 }
 
 function download_conf(){
@@ -30,7 +30,7 @@ HDFS=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/sh
 MP=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/mapred-site.xml"
 YARN=$proxy"https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/qx/shell/yarn-site.xml"
 
-source /etc/profile && echo "=======更新软件源======"
+source /etc/profile && echo "===========更新软件源=========="
 printf "\n"
 source ~/.bashrc 
 printf "\n"
@@ -49,9 +49,9 @@ echo "--->M"
 wget -q -t 3  -P $HADOOP_HOME/etc/hadoop $YARN -O $HADOOP_HOME/etc/hadoop/yarn-site.xml --no-check-certificate
 echo "--->Y"
 
-echo "===========下载完成============="
+echo "===========下载完成=========="
 else
-echo "======HADOOP_HOME 不存在========="
+echo "==========HADOOP_HOME不存在=========="
 fi
 
 }
@@ -69,8 +69,6 @@ sed -i "s,master,$hostName,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
 value_path=`hadoop classpath`
 sed -i "s,my_hadoop_classpath,$value_path,g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
 echo "===========更新完成==============="
-else
-echo "=============HADOOP_HOME 不存在==========="
 fi
 }
 
