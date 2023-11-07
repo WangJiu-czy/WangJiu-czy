@@ -88,6 +88,35 @@
     <name>hive.server2.active.passive.ha.enable</name>
     <value>true</value>
 </property>
+   <!-- 3.x  -->
+    <property>
+        <name>hive.metastore.event.db.notification.api.auth</name>
+        <value>false</value>
+    </property>
 
+    <property>
+        <name>hive.exec.dynamic.partition</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.exec.dynamic.partition.mode</name>
+        <value>nonstrict</value>
+    </property>
+    <property>
+        <name>hive.stats.column.autogather</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>hive.optimize.sort.dynamic.partition</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.exec.max.dynamic.partitions.pernode</name>
+        <value>1000</value>
+    </property>
+    <property>
+        <name>hive.exec.max.dynamic.partitions</name>
+        <value>1000</value>
+    </property>
 
 </configuration>
