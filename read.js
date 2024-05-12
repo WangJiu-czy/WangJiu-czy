@@ -12,7 +12,7 @@
 【QuantumultX】 :
 *************************
 [rewrite_local]
-^https?://mp\.weixin\.qq\.com/s\?.* url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/wechat_auto_read.js
+^https?://mp\.weixin\.qq\.com/s\?.* url script-response-body https://raw.githubusercontent.com/WangJiu-czy/WangJiu-czy/main/read.js
 *************************
 
 【Loon】 :
